@@ -1,0 +1,72 @@
+# Example of a good prompt
+
+Prompt for Script Creation:
+
+I am writing an in-depth, multi-part script that will be divided into 'n' scenes, where 'n' is a number between 5 and a larger unspecified value. Each scene must be vividly descriptive, as the purpose of this script is to serve as a blueprint for creating visual illustrations as it will later be used in an image generating AI. Therefore, I need each scene to be rich in detail, focusing on mood, setting, and character actions, the script is also meant for teens and kids, leaving them in aww. But the scene text should be limited and consice only one paragraph per script
+
+The format of the script should strictly follow this structure:
+
+Story Title: The Ice Cream Truck
+
+Scene 1
+[Detailed text]
+
+Scene 2
+[Detailed text]
+
+Scene 3
+[Detailed text]
+
+...
+
+Scene N
+[Detailed text]
+
+I will provide the core elements of the story below, and I need these incorporated into the scenes:
+
+Emotion: The overall tone of the story should evoke sadness.
+Character description:
+Timmy: A chubby, playful orange cat who is always happy.
+Cupcake: Timmy’s father, a large black cat with a more reserved and thoughtful demeanor.
+Setting: The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point.
+Total Parts: This story should be a total of 10 scenes
+This is a completely original story, not inspired by any existing works. Please provide the script formatted exactly as requested and save it as a .txt file, with the .txt file name being the same as the title of the story.
+
+
+# Example of good output
+
+Here's the script formatted as requested:
+
+Story Title: The Ice Cream Truck
+
+Scene 1
+A sunlit park brims with vibrant colors on a serene afternoon. The grass is a lush, emerald green, dotted with dandelions and butterflies fluttering about. In the center, a charming ice cream truck, painted in pastel hues of pink and blue, sits under the shade of a sprawling oak tree. Timmy, the chubby, playful orange cat, bounds excitedly towards the truck, his tail a plume of happiness. His large, bright eyes are filled with anticipation. Cupcake, his father, a large black cat with a thoughtful expression, follows at a slower pace, his eyes reflecting a sense of wistfulness.
+
+Scene 2
+Timmy, now standing in front of the ice cream truck, is mesmerized by the colorful array of ice creams displayed in the window. The truck's bell jingles occasionally as customers come and go. Timmy’s paws press against the counter, and his nose twitches with excitement. Cupcake stands beside him, holding Timmy’s favorite flavor in his hand but with a pensive look in his eyes. The mood subtly shifts as Cupcake looks around the park, noting its quiet solitude despite the sunny weather.
+
+Scene 3
+Timmy, holding his ice cream cone high, takes a big lick, his face lighting up with joy. Cupcake watches him with a soft smile, but his gaze drifts towards a small group of children playing nearby. The laughter and chatter of the children contrast with the empty spaces around them, amplifying the park’s silence. Timmy’s happiness seems almost out of place against this backdrop, highlighting Cupcake’s internal struggle.
+
+Scene 4
+As the sun begins to set, casting long shadows across the park, Timmy’s energy starts to wane. His once vibrant orange fur looks a little dimmer in the fading light. Cupcake gently nudges him, urging him to walk around the park. The ice cream truck now looks a little forlorn, its bright colors dulled by the encroaching twilight. Timmy drags his feet, his playful demeanor replaced with a more subdued expression.
+
+Scene 5
+Cupcake and Timmy find a quiet spot under the oak tree where the light is softer. Timmy sits down, clutching his half-eaten ice cream cone. Cupcake takes a seat beside him, wrapping a comforting arm around his small frame. The park’s quiet ambiance contrasts sharply with the previous excitement. The sky is painted in hues of purple and orange, reflecting the bittersweet mood of the scene.
+
+Scene 6
+A gentle breeze rustles the leaves, carrying with it a faint, nostalgic melody from a nearby playground. Timmy’s eyes droop as he looks at the playground equipment, now deserted. Cupcake’s eyes follow his gaze, filled with a deep, unspoken sorrow. The ice cream cone lies forgotten on the ground, melting slowly into a small puddle. The park’s beauty is tinged with a sense of melancholy.
+
+Scene 7
+Cupcake stands up and offers his paw to Timmy, encouraging him to take a walk. Timmy hesitates but eventually takes it, his small paw clasping his father's. They walk slowly along a path lined with flowering bushes. The vibrant colors of the flowers seem to fade as the sun continues to set, creating a more somber atmosphere. The park’s beauty is overshadowed by a sense of loss and introspection.
+
+Scene 8
+They reach a small, serene pond where the water reflects the now dimming sky. Timmy sits on the edge, watching the ripples distort his reflection. Cupcake stands behind him, his gaze distant. The once lively park is now bathed in twilight, with only the distant sound of crickets breaking the silence. The tranquility of the pond contrasts with the underlying sadness of the scene.
+
+Scene 9
+Timmy and Cupcake slowly make their way back towards the ice cream truck, now illuminated by a soft, warm light. Timmy’s steps are heavy, and Cupcake’s demeanor is one of quiet resignation. The ice cream truck’s cheerful exterior now seems a little sad, its colorful paint reflecting the dimming light. They reach the truck, and Timmy looks up at Cupcake with a tired but contented smile, his earlier joy now tempered by the day’s experiences.
+
+Scene 10
+The night has fully descended, and the park is now enveloped in darkness. Timmy and Cupcake sit on a park bench, the ice cream truck now closed and silent in the background. The stars twinkle above, casting a soft glow over the park. Timmy rests his head on Cupcake’s shoulder, both of them quiet as they take in the stillness of the night. The scene is serene but carries a poignant sadness, as the day’s end symbolizes the fleeting nature of their happiness.
+
+You can save this as "The Ice Cream Truck.txt" for your script. If you need any adjustments or additional scenes, just let me know!
