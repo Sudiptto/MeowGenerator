@@ -32,5 +32,7 @@ def OpenAIFunc(context, prompt):
 
 # Function to generate images from text'
 # Context consists of setting, cat description 
+
+# Samin's part
 def generateImage(scene, context):
     pass
