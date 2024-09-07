@@ -1,0 +1,47 @@
+{
+  "Emotions": {
+    "Sad": [
+      {
+        "Story Title": "Sad Tiger",
+        "script": [
+          {
+            "Scene": "The tiger sits alone in the jungle, surrounded by towering trees but feeling completely isolated. A single tear falls as it watches the sunset, remembering its lost family.",
+            "Image URL": "https://www.example.com/tiger_scene1"
+          },
+          {
+            "Scene": "It wanders through the dense foliage, each step heavy with sadness. The sound of rustling leaves is its only company as it searches for something it cannot name.",
+            "Image URL": "https://www.example.com/tiger_scene2"
+          }
+        ]
+      },
+      {
+        "Story Title": "Sad Tiger",
+        "script": [
+          {
+            "Scene": "The tiger sits alone in the jungle, surrounded by towering trees but feeling completely isolated. A single tear falls as it watches the sunset, remembering its lost family.",
+            "Image URL": "https://www.example.com/tiger_scene1"
+          },
+          {
+            "Scene": "It wanders through the dense foliage, each step heavy with sadness. The sound of rustling leaves is its only company as it searches for something it cannot name.",
+            "Image URL": "https://www.example.com/tiger_scene2"
+          }
+        ]
+      }
+    ],
+    "Melancholy": [
+      {
+        "Story Title": "Lonely Elephant",
+        "script": [
+          {
+            "Scene": "The elephant trudges through the savannah, its large feet leaving imprints in the dry earth. It longs for the days when it was part of a herd, but now it walks alone.",
+            "Image URL": "https://www.example.com/elephant_scene1"
+          },
+          {
+            "Scene": "Standing by the river, it watches its reflection in the water, its eyes filled with a deep sense of loss and longing for companionship.",
+            "Image URL": "https://www.example.com/elephant_scene2"
+          }
+        ]
+      }
+    ]
+  }
+}
