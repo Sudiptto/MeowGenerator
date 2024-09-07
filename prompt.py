@@ -5,7 +5,7 @@
 # Ayen section
 
 import json
-from ai import OpenAIFunc
+from ai import *
 import re  # Import regular expressions library
 
 # Function to dynamically generate a story prompt
@@ -41,22 +41,23 @@ def generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory,
 
     # Call the OpenAI function with the generated prompt and store the response
     response = OpenAIFunc("You are a story generator.", prompt)
-
-    # Print the raw response from OpenAI for verification
-    print("Response from OpenAIFunc:", response)
+    #print(response)
 
     # Use regex to split the response into scenes based on the pattern "Scene X:"
     scenes = re.findall(r"Scene \d+:(.*?)(?=Scene \d+:|$)", response, re.DOTALL)
     scenes = [scene.strip() for scene in scenes if scene.strip()]
 
+    
     # Check if the number of scenes matches the expected number
     if len(scenes) != parts:
         print(f"Warning: Expected {parts} scenes, but found {len(scenes)} scenes.")
 
-    # Create the formatted response with an extra newline character before the title
-    formatted_response = f"\nStory Title: {storyTitle};\n\nScenes: {json.dumps(scenes)}"
+    
+    return scenes, storyTitle
 
-    return formatted_response
+def send_Prompts(scenes, storyTitle, context, emotion):
+    # aiImage()
+    pass
 
 # Test cases to validate dynamic generation
 def test_generate_story_prompt():
@@ -71,12 +72,8 @@ def test_generate_story_prompt():
     formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
 
     # Print output for verification
+    #print(formatted_story)
     print(formatted_story)
-
-    # Basic assertions for validation
-    assert formatted_story.startswith("\nStory Title: The Happy Lion;")
-    assert "Scenes: [" in formatted_story  # Ensuring scenes are included once
-    assert formatted_story.count("[") == 1 and formatted_story.count("]") == 1  # Ensuring only one array is printed
 
 if __name__ == "__main__":
     # Run test cases
