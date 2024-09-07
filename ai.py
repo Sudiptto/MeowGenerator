@@ -4,6 +4,7 @@ from openai import AzureOpenAI, OpenAI
 from passwords import *
 import os 
 
+
 #openAI key to use dalle-3 to generate images
 os.environ["OPENAI_API_KEY"] = OPENAI_4_KEY
 client = OpenAI()
@@ -40,7 +41,7 @@ def OpenAIFunc(context, prompt):
 # ex. 
 # scene @return: A string of a description of a scene   
 def generateImage(scene, context):
-    img_prompt = "Knowing that " +context + ", then create an image of " +scene
+    img_prompt = "Knowing that " +context +", then create an image of " +scene
     client = OpenAI()
     response = client.images.generate(
     model="dall-e-3",
@@ -52,11 +53,3 @@ def generateImage(scene, context):
     image_url = response.data[0].url
     print(image_url)
     return image_url
-
-
-"""context = "context"
-scene = "scene"
-prompt = "Knowing that "+context +", then create an image of " +scene
-print(prompt)"""
-
-generateImage("Timmy, now standing in front of the ice cream truck, is mesmerized by the colorful array of ice creams displayed in the window. The truck's bell jingles occasionally as customers come and go. Timmy’s paws press against the counter, and his nose twitches with excitement. Cupcake stands beside him, holding Timmy’s favorite flavor in his hand but with a pensive look in his eyes. The mood subtly shifts as Cupcake looks around the park, noting its quiet solitude despite the sunny weather.", "Timmy: A chubby, playful orange cat who is always happy. Cupcake: Timmy’s father, a large black cat with a more reserved and thoughtful demeanor. Setting: The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point." )
