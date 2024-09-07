@@ -2,16 +2,14 @@
 # this file contains all the AI related functions for jeapordy.py
 from openai import AzureOpenAI, OpenAI
 from passwords import *
-import os 
+import os
 
-
-#openAI key to use dalle-3 to generate images
+# Set up API keys and client initialization
 os.environ["OPENAI_API_KEY"] = OPENAI_4_KEY
 client = OpenAI()
 
-#Setting up AI
 AOAI_ENDPOINT = AZURE_OPENAI_ENDPOINT
-AOAI_KEY = AZURE_OPENAI_API_KEY 
+AOAI_KEY = AZURE_OPENAI_API_KEY
 MODEL_NAME = "gpt-35-turbo"
 
 openai_client = AzureOpenAI(
@@ -20,33 +18,40 @@ openai_client = AzureOpenAI(
     api_version="2024-05-01-preview",
 )
 
-#context -> context of the conversation
-#prompt -> the user's input
-def OpenAIFunc(context, prompt):
+# Function to interact with OpenAI chat model
+def OpenAIFunc(context, prompt):  
     response = openai_client.chat.completions.create(
-                model=MODEL_NAME,
-                messages=[
-                    {"role": "system", "content": f"{context}"} ,
-                    {"role": "user", "content":prompt}
-                ],
-                max_tokens=4000
-            )
-    ai_response = (response.choices[0].message.content)
-
+        model=MODEL_NAME,
+        messages=[
+            {"role": "system", "content": f"{context}"},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=4000
+    )
+    ai_response = response.choices[0].message.content
     return ai_response
 
+# Function to create an image prompt based on context and scene
+def createImagePrompt(scene, context):
+    img_prompt = (
+        "Create a highly detailed and vivid image with the following characteristics: " 
+        + context 
+        + ". The scene should depict " + scene 
+        + ". Maintain a consistent visual style across images by focusing on specific details such as a unified color palette, textures, and lighting. Ensure the use of consistent objects, character designs, and poses. Pay attention to recurring themes, the overall atmosphere, and a coherent setting that aligns with the context provided. Use similar background elements, lighting effects (such as natural sunlight or shadows), and ensure that the composition aligns with the style of previous images. "
+        "Avoid randomness or variations that stray from the context. Keep the theme, visual style, and mood consistent to ensure continuity across multiple images in the same series."
+    )
+    image_url = generateImage(img_prompt)
+    return image_url
 
-# Function to generate images from text'
-
-def generateImage(scene, context):
-    img_prompt = "Knowing that " +context +", then create an image of " +scene
-    client = OpenAI()
+# Function to generate images using OpenAI's DALL-E model
+def generateImage(img_prompt):
+    
     response = client.images.generate(
-    model="dall-e-3",
-    prompt=img_prompt,
-    size="1024x1024",
-    quality="standard",
-    n=1,
+        model="dall-e-3",
+        prompt=img_prompt,
+        size="1024x1024",
+        quality="standard",
+        n=1,
     )
     image_url = response.data[0].url
     print(image_url)

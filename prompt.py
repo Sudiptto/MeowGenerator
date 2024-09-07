@@ -21,4 +21,3 @@ def split_story_prompt(script, n):
 
     # passed on to the image generation function -> contain context 
     pass
-
