@@ -1,7 +1,13 @@
 # For OpenAI function and developing the images
 # this file contains all the AI related functions for jeapordy.py
-from openai import AzureOpenAI
+from openai import AzureOpenAI, OpenAI
 from passwords import *
+import os 
+
+
+#openAI key to use dalle-3 to generate images
+os.environ["OPENAI_API_KEY"] = OPENAI_4_KEY
+client = OpenAI()
 
 #Setting up AI
 AOAI_ENDPOINT = AZURE_OPENAI_ENDPOINT
@@ -31,8 +37,16 @@ def OpenAIFunc(context, prompt):
 
 
 # Function to generate images from text'
-# Context consists of setting, cat description 
-
-# Samin's part
 def generateImage(scene, context):
-    pass
+    img_prompt = "Knowing that " + context +", then create an image of " +scene
+    client = OpenAI()
+    response = client.images.generate(
+        model="dall-e-3",
+        prompt=img_prompt,
+        size="1024x1024",
+        quality="standard",
+        n=1,
+    )
+    image_url = response.data[0].url
+    print(image_url)
+    return image_url

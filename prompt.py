@@ -52,28 +52,41 @@ def generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory,
     if len(scenes) != parts:
         print(f"Warning: Expected {parts} scenes, but found {len(scenes)} scenes.")
 
-    
-    return scenes, storyTitle
+    context = catDescription + "  "  + inspirationStory
+    send_Prompts(scenes, storyTitle, context, emotion)
+
 
 def send_Prompts(scenes, storyTitle, context, emotion):
-    # aiImage()
-    pass
+    # End goal generate array of images url like this:
+    # [image1.com, image2.com, image3.com...]
+    
+    print(scenes, context)
+
+    imageUrls = []
+
+    """for scene in scenes:
+        imageUrl = generateImage(scene, context)
+        imageUrls.append(imageUrl)"""
+    
+    print(imageUrls)
+
 
 # Test cases to validate dynamic generation
 def test_generate_story_prompt():
     # Test data
-    storyTitle = "The Happy Lion"
-    catDescription = "The main character is a friendly lion who loves to play with children"
+    storyTitle = "The Happy Cat"
+    catDescription = """
+    Timmy: A chubby, playful orange cat who is always happy.
+    Cupcake: Timmy’s father, a large black cat with a more reserved and thoughtful demeanor."""
+
     emotion = "Joyful"
-    inspirationStory = "A lion who befriends a group of children and goes on adventures with them"
-    parts = 10
+    inspirationStory = "The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point."
+    parts = 3
 
     # Call the function with test data
     formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
 
-    # Print output for verification
-    #print(formatted_story)
-    print(formatted_story)
+   #print(formatted_story)
 
 if __name__ == "__main__":
     # Run test cases
