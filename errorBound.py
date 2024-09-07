@@ -1,18 +1,65 @@
-# Check the error bounds 
+import re
 
-# storyTitle verification
-# around 5 characters - 100 characters
 def verifyStoryTitle(storyTitle):
-    
-    # if story title all empty than return False
+    # if story title is all empty then return False
     if storyTitle.isspace():
         return False
-
-    # less than 10 characters, excluding spaces
-    if len(storyTitle) < 5:
-        return False
-    # greater than 100
-    if len(storyTitle) > 100:
+    
+    # less than 5 characters or more than 100 characters
+    if len(storyTitle) < 5 or len(storyTitle) > 100:
         return False
     
     return True
+
+def verifyCatDescription(catDescription):
+    # Check if description is empty
+    if catDescription.isspace():
+        return False
+    
+    # Check for word count
+    word_count = len(catDescription.split())
+    if word_count < 200 or word_count > 400:
+        return False
+    
+    return True
+
+def verifyEmotion(emotion):
+    # Check if emotion is empty
+    if emotion.isspace():
+        return False
+    
+    # Check length of emotion string
+    if len(emotion) < 10 or len(emotion) > 50:
+        return False
+    
+    return True
+
+def verifyInspirationStory(inspirationStory):
+    # Check if inspiration story is empty
+    if inspirationStory.isspace():
+        return False
+    
+    # Check for word count
+    word_count = len(inspirationStory.split())
+    if word_count < 200 or word_count > 400:
+        return False
+    
+    return True
+
+def verifyParts(parts):
+    # Check if parts is a number
+    if not isinstance(parts, int):
+        return False
+    
+    # Check if parts is between 1 and 12
+    if parts < 1 or parts > 12:
+        return False
+    
+    return True
+
+# Example usage
+print(verifyStoryTitle("A brief story"))  # True
+print(verifyCatDescription("This is a description that has more than 200 words..."))  # Depends on the content
+print(verifyEmotion("Happy"))  # Depends on length
+print(verifyInspirationStory("This is an inspirational story that contains more than 200 words..."))  # Depends on the content
+print(verifyParts(5))  # True
