@@ -53,17 +53,10 @@ def generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory,
     if len(scenes) != parts:
         print(f"Warning: Expected {parts} scenes, but found {len(scenes)} scenes.")
 
-    # Create a dictionary for JSON format
-    story_dict = {
-        "Story Title": storyTitle,
-        "Scenes": scenes
-    }
+    # Create the formatted response with an extra newline character before the title
+    formatted_response = f"\nStory Title: {storyTitle};\n\nScenes: {json.dumps(scenes)}"
 
-    # Convert the dictionary to JSON format and save it with the story title as the filename
-    with open(f"{storyTitle}.json", "w") as json_file:
-        json.dump(story_dict, json_file, indent=4)
-
-    return story_dict
+    return formatted_response
 
 # Test cases to validate dynamic generation
 def test_generate_story_prompt():
@@ -75,20 +68,16 @@ def test_generate_story_prompt():
     parts = 10
 
     # Call the function with test data
-    story_json = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
-
-    story = json.dumps(story_json, indent=4)
+    formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
 
     # Print output for verification
-    print(story)
+    print(formatted_story)
 
-    # Assertions to validate expected structure
-    assert "Story Title" in story_json
-    assert story_json["Story Title"] == storyTitle
-    assert len(story_json["Scenes"]) == parts  # Ensure the correct number of scenes
+    # Basic assertions for validation
+    assert formatted_story.startswith("\nStory Title: The Happy Lion;")
+    assert "Scenes: [" in formatted_story  # Ensuring scenes are included once
+    assert formatted_story.count("[") == 1 and formatted_story.count("]") == 1  # Ensuring only one array is printed
 
 if __name__ == "__main__":
     # Run test cases
     test_generate_story_prompt()
-
-# Just want an array.
