@@ -23,6 +23,7 @@ def createJSON(storyTitle, scenes, imageURLs, emotion):
     if not story_exists:
         new_story = create_new_story(storyTitle, scenes, imageURLs)
         data['Emotions'][emotion].append(new_story)
+        
     else:
         add_scenes_to_story(data, emotion, storyTitle, scenes, imageURLs)
     
@@ -30,7 +31,12 @@ def createJSON(storyTitle, scenes, imageURLs, emotion):
     with open(file_name, 'w') as file:
         json.dump(data, file, indent=2)
 
+    # GET THE CREATED STORY JUST MADE OUT
+    createdStory = next((story for story in data['Emotions'][emotion] if story['Story Title'] == storyTitle), None)
+    #print("Data ", createdStory)
     print("Updated JSON FILE")
+
+    return createdStory
 
 # Function to check if a story already exists in the data
 def check_story_exists(data, emotion, storyTitle):

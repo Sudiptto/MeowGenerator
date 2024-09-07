@@ -54,11 +54,21 @@ def generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory,
         print(f"Warning: Expected {parts} scenes, but found {len(scenes)} scenes.")
 
     context = catDescription + "  "  + inspirationStory
-    send_Prompts(scenes, storyTitle, context, emotion)
+    # generate URLS
+    generatedUrls = send_Prompts(scenes, context)
+
+    # Create the JSON Data
+    createdStory = createJSON(storyTitle, scenes, generatedUrls, emotion)
+
+    return createdStory
 
 
 
-def send_Prompts(scenes, storyTitle, context, emotion):
+
+
+
+# send prompts over and than get the image URLs
+def send_Prompts(scenes, context):
     # End goal generate array of images url like this:
     # [image1.com, image2.com, image3.com...]
     
@@ -70,20 +80,19 @@ def send_Prompts(scenes, storyTitle, context, emotion):
         imageUrl = createImagePrompt(scene, context)
         image_urls.append(imageUrl)"""
     
-    #print(image_urls)
+    return image_urls
 
-    createJSON(storyTitle, scenes, image_urls, emotion)
 
 
 # Test cases to validate dynamic generation
 def test_generate_story_prompt():
     # Test data
-    storyTitle = "The Doge and The Cat"
+    storyTitle = "The Maid and The Cat"
     catDescription = """
     Timmy: A chubby, playful orange cat who is always happy.
     Cupcake: Timmy’s father, a large orange cat with a more reserved and thoughtful demeanor."""
 
-    emotion = "Sad"
+    emotion = "Amazed"
     inspirationStory = "The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point."
     parts = 3
 
