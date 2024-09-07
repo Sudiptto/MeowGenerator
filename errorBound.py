@@ -18,7 +18,7 @@ def verifyCatDescription(catDescription):
     
     # Check for word count
     word_count = len(catDescription.split())
-    if word_count < 200 or word_count > 400:
+    if word_count < 50 or word_count > 400:
         return False
     
     return True
@@ -29,7 +29,7 @@ def verifyEmotion(emotion):
         return False
     
     # Check length of emotion string
-    if len(emotion) < 10 or len(emotion) > 50:
+    if len(emotion) < 3 or len(emotion) > 50:
         return False
     
     return True
@@ -41,25 +41,29 @@ def verifyInspirationStory(inspirationStory):
     
     # Check for word count
     word_count = len(inspirationStory.split())
-    if word_count < 200 or word_count > 400:
+    if word_count < 50 or word_count > 500:
         return False
     
     return True
 
 def verifyParts(parts):
-    # Check if parts is a number
-    if not isinstance(parts, int):
+    # Try to convert parts to an integer
+    try:
+        parts = int(parts)
+    except ValueError:
         return False
     
-    # Check if parts is between 1 and 12
-    if parts < 1 or parts > 12:
+    # Check if parts is between 1 and 15
+    if parts < 1 or parts > 15:
         return False
     
     return True
 
+
 # Example usage
-print(verifyStoryTitle("A brief story"))  # True
+"""print(verifyStoryTitle("A brief story"))  # True
 print(verifyCatDescription("This is a description that has more than 200 words..."))  # Depends on the content
 print(verifyEmotion("Happy"))  # Depends on length
 print(verifyInspirationStory("This is an inspirational story that contains more than 200 words..."))  # Depends on the content
-print(verifyParts(5))  # True
+print(verifyParts(5))  # True"""
+

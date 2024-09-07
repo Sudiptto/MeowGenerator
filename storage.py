@@ -73,4 +73,4 @@ def eraseJSON():
 
 
 #createJSON("The Ice Cream Office Scene", scenes, imageURLs, "Mad")
-eraseJSON()
+#eraseJSON()
