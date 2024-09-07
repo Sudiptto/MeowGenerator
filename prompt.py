@@ -7,6 +7,7 @@
 import json
 from ai import *
 import re  # Import regular expressions library
+from storage import *
 
 # Function to dynamically generate a story prompt
 def generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts):
@@ -60,15 +61,17 @@ def send_Prompts(scenes, storyTitle, context, emotion):
     # End goal generate array of images url like this:
     # [image1.com, image2.com, image3.com...]
     
-    print(scenes, context)
+    #print(scenes, context)
 
-    imageUrls = []
+    image_urls = []
 
-    """for scene in scenes:
-        imageUrl = generateImage(scene, context)
-        imageUrls.append(imageUrl)"""
+    for scene in scenes:
+        imageUrl = createImagePrompt(scene, context)
+        image_urls.append(imageUrl)
     
-    print(imageUrls)
+    print(image_urls)
+
+    createJSON(storyTitle, scenes, image_urls, emotion)
 
 
 # Test cases to validate dynamic generation
@@ -86,7 +89,7 @@ def test_generate_story_prompt():
     # Call the function with test data
     formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
 
-   #print(formatted_story)
+    print(formatted_story)
 
 if __name__ == "__main__":
     # Run test cases
