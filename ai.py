@@ -37,9 +37,7 @@ def OpenAIFunc(context, prompt):
 
 
 # Function to generate images from text'
-# Context consists of setting, cat description
-# ex. 
-# scene @return: A string of a description of a scene   
+
 def generateImage(scene, context):
     img_prompt = "Knowing that " +context +", then create an image of " +scene
     client = OpenAI()
