@@ -46,13 +46,31 @@ def verifyInspirationStory(inspirationStory):
     
     return True
 
-def verifyParts(parts):
-    # Try to convert parts to an integer
+def checkInteger(intValue):
     try:
-        parts = int(parts)
+        intValue = int(intValue)
     except ValueError:
         return False
+    return True
+
+def checkInteger(value):
+    try:
+        # Try to convert the value to an integer
+        intValue = int(value)
+        # Check if converting back to float changes the value
+        if float(value) != intValue:
+            return False
+        return True
+    except ValueError:
+        # If a ValueError is raised, the value is not an integer
+        return False
+
+def verifyParts(parts):
+    # Try to convert parts to an integer
     
+    if checkInteger(parts) == False:
+        return False
+    parts = int(parts)
     # Check if parts is between 1 and 15
     if parts < 1 or parts > 15:
         return False
@@ -66,4 +84,3 @@ print(verifyCatDescription("This is a description that has more than 200 words..
 print(verifyEmotion("Happy"))  # Depends on length
 print(verifyInspirationStory("This is an inspirational story that contains more than 200 words..."))  # Depends on the content
 print(verifyParts(5))  # True"""
-
