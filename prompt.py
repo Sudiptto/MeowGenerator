@@ -74,11 +74,11 @@ def send_Prompts(scenes, context):
     
     #print(scenes, context)
 
-    image_urls = []
+    image_urls = ["https://placehold.co/600x400/png", "https://placehold.co/600x400/png", "https://placehold.co/600x400/png", "https://placehold.co/600x400/png", "https://placehold.co/600x400/png", "https://placehold.co/600x400/png", "https://placehold.co/600x400/png", "https://placehold.co/600x400/png"]
 
-    for scene in scenes:
+    """for scene in scenes:
         imageUrl = createImagePrompt(scene, context)
-        image_urls.append(imageUrl)
+        image_urls.append(imageUrl)"""
     
     return image_urls
 
@@ -87,15 +87,15 @@ def send_Prompts(scenes, context):
 # Test cases to validate dynamic generation
 def test_generate_story_prompt():
     # Test data
-    storyTitle = "The Dragon and Huge Cat"
+    storyTitle = "The Cat in the Trap"
     catDescription = """
     Timmy: A chubby, playful orange cat who is always happy.
     Dragoon: A cat dragon
     Cupcake: Timmy’s father, a large orange cat with a more reserved and thoughtful demeanor."""
 
-    emotion = "Amazed"
-    inspirationStory = "The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point and Timmy's dragon cat friend Dragoon came"
-    parts = 2
+    emotion = "Mad"
+    inspirationStory = "The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point and Timmy's dragon cat friend Dragoon came and Dragoon playfully attacks timmy"
+    parts = 8
 
     # Call the function with test data
     formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
