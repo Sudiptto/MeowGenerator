@@ -2,6 +2,7 @@
 # this file contains all the AI related functions for jeapordy.py
 from openai import AzureOpenAI, OpenAI
 from passwords import *
+from imgStorage import *
 import os
 
 # Set up API keys and client initialization
@@ -40,8 +41,16 @@ def createImagePrompt(scene, context):
         + ". Maintain a consistent visual style across images by focusing on specific details such as a unified color palette, textures, and lighting. Ensure the use of consistent objects, character designs, and poses. Pay attention to recurring themes, the overall atmosphere, and a coherent setting that aligns with the context provided. Use similar background elements, lighting effects (such as natural sunlight or shadows), and ensure that the composition aligns with the style of previous images. "
         "Avoid randomness or variations that stray from the context. Keep the theme, visual style, and mood consistent to ensure continuity across multiple images in the same series."
     )
+
     image_url = generateImage(img_prompt)
-    return image_url
+    cloudImageUrl = getNewURL(image_url)
+    
+    return cloudImageUrl
+
+# Function to get new URL -> from the IMGBB cloud server
+def getNewURL(image_url):
+    new_image_url = upload_image_to_imgbb(image_url, imgBBAPIKey)
+    return new_image_url
 
 # Function to generate images using OpenAI's DALL-E model
 def generateImage(img_prompt):
