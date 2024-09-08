@@ -95,12 +95,12 @@ def test_generate_story_prompt():
 
     emotion = "Amazed"
     inspirationStory = "The scenes take place on a lovely day in the park, with an ice cream truck as a central focal point and Timmy's dragon cat friend Dragoon came"
-    parts = 3
+    parts = 2
 
     # Call the function with test data
-    #formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
+    formatted_story = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
 
-    #print(formatted_story)
+    print(formatted_story)
 
 if __name__ == "__main__":
     # Run test cases
