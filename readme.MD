@@ -51,7 +51,7 @@ Example Request:
 
 curl -X GET "http://<your-server-address>:<port>/meowData/getAllData"
 
-### get-all-data
+### Generate a Story Prompt
 Endpoint: /meowData/getDataByEmotion/<emotion>
 Method: GET
 Description: Retrieves data filtered by emotion.
@@ -67,7 +67,7 @@ Example Request:
 
 curl -X GET "http://<your-server-address>:<port>/meowData/getDataByEmotion/Happy"
 
-### get-data-by-emotion
+Get Data by Story Title
 Endpoint: /meowData/getDataByTitle/<storyTitle>
 Method: GET
 Description: Retrieves data filtered by story title.
