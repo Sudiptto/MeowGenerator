@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # main API route for generating a story prompt
-@app.route('/meowGeneration/<storyTitle>/<catDescription>/<emotion>/<inspirationStory>/<parts>', methods=['POST'])
+@app.route('/meowGeneration/<storyTitle>/<catDescription>/<emotion>/<inspirationStory>/<parts>', methods=['GET'])
 def meowGeneration(storyTitle, catDescription, emotion, inspirationStory, parts):
     
     if verifyStoryTitle(storyTitle) == False:

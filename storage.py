@@ -1,9 +1,10 @@
-# For storing the JSON 
 import json
 
 # Function to create and update a JSON file with story data
-def createJSON(storyTitle, scenes, imageURLs, emotion):
+def createJSON(storyTitle, scenes, imageURLs, emotion, videoUrl):
     file_name = "storyData.json"
+
+    print("Current Video url: " + videoUrl)
     
     # Load existing data from the JSON file if it exists, otherwise start with an empty structure
     try:
@@ -21,9 +22,8 @@ def createJSON(storyTitle, scenes, imageURLs, emotion):
     
     # If the storyTitle does not exist, create a new entry for the story
     if not story_exists:
-        new_story = create_new_story(storyTitle, scenes, imageURLs)
+        new_story = create_new_story(storyTitle, scenes, imageURLs, videoUrl)
         data['Emotions'][emotion].append(new_story)
-        
     else:
         add_scenes_to_story(data, emotion, storyTitle, scenes, imageURLs)
     
@@ -46,9 +46,10 @@ def check_story_exists(data, emotion, storyTitle):
     return False
 
 # Function to create a new story entry
-def create_new_story(storyTitle, scenes, imageURLs):
+def create_new_story(storyTitle, scenes, imageURLs, videoUrl):
     new_story = {
         'Story Title': storyTitle,
+        'Video Url': videoUrl,
         'script': []
     }
     for i in range(len(scenes)):
@@ -69,14 +70,12 @@ def add_scenes_to_story(data, emotion, storyTitle, scenes, imageURLs):
                 })
             break
 
-
-# function to erase the storyData.json
+# Function to erase the storyData.json
 def eraseJSON():
     file_name = "storyData.json"
     data = {"Emotions": {}}
     with open(file_name, 'w') as file:
         json.dump(data, file, indent=2)
 
-
-#createJSON("The Ice Cream Office Scene", scenes, imageURLs, "Mad")
+#createJSON("The Ice Cream Office Scene", scenes, imageURLs, "Mad", "http://example.com/video")
 #eraseJSON()
