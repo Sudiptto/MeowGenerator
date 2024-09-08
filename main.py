@@ -26,7 +26,7 @@ def meowGeneration(storyTitle, catDescription, emotion, inspirationStory, parts)
         return jsonify({"error": "Make sure parts is a number between 1 and 15"})
     
     response = generate_story_prompt(storyTitle, catDescription, emotion, inspirationStory, parts)
-    return f"All Data: {storyTitle}, {catDescription}, {emotion}, {inspirationStory}, {parts}"
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
